@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    <h2>Enter Patient Details</h2>
+    <form action="{{ url_for('predict_datapoint') }}" method="POST">
+        <label>Age:</label><input type="number" name="age" required><br><br>
+        <label>Sex (1=Male, 0=Female):</label><input type="number" name="sex" required><br><br>
+        <label>CP (Chest Pain type):</label><input type="number" name="cp" required><br><br>
+        <label>Trestbps (Resting BP):</label><input type="number" name="trestbps" required><br><br>
+        <label>Chol (Cholesterol):</label><input type="number" name="chol" required><br><br>
+        <label>FBS (Fasting Blood Sugar > 120 mg/dl):</label><input type="number" name="fbs" required><br><br>
+        <label>RestECG:</label><input type="number" name="restecg" required><br><br>
+        <label>Thalach (Max Heart Rate):</label><input type="number" name="thalach" required><br><br>
+        <label>Exang (Exercise-induced Angina):</label><input type="number" name="exang" required><br><br>
+        <label>Oldpeak:</label><input type="number" step="any" name="oldpeak" required><br><br>
+        <label>Slope:</label><input type="number" name="slope" required><br><br>
+        <label>CA (Number of major vessels):</label><input type="number" name="ca" required><br><br>
+        <label>Thal:</label><input type="number" name="thal" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <hr>
+    {% if result is defined %}
+        <h3>Prediction Result: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
